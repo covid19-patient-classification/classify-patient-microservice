@@ -1,4 +1,4 @@
-from app.infrastructure.adapters.input.flask.run.resources.config import config_dict
+from app.infrastructure.adapters.input.flask.config import config_dict
 from app.infrastructure.adapters.input.flask.api import create_app
 from decouple import config
 from flask_migrate import Migrate
