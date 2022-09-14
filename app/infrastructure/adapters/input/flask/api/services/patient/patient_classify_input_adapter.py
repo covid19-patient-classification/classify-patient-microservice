@@ -1,4 +1,4 @@
-from app.infrastructure.adapters.input.rest.services.patient import blueprint
+from app.infrastructure.adapters.input.flask.api.services.patient import blueprint
 from flask import jsonify
 
 
