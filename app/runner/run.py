@@ -1,10 +1,10 @@
-from app.infrastructure.adapters.input.flask.config import config_dict
+from app.runner.resources.config import config_dict
 from app.infrastructure.adapters.input.flask.api import create_app
-from decouple import config
 from flask_migrate import Migrate
+import os
 
-# WARNING: Don't run with debug turned on in production.
-DEBUG = config('DEBUG', default=True, cast=bool)
+
+DEBUG = os.environ.get('FLASK_DEBUG', default=False)
 
 # Set configuration values
 config_mode = 'Debug' if DEBUG else 'Production'

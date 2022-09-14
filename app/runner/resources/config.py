@@ -1,4 +1,3 @@
-from decouple import config
 import os
 
 
@@ -6,7 +5,8 @@ class Config(object):
     base_direction = os.path.abspath(os.path.dirname(__file__))
 
     # Set up a secret key to environment variable
-    SECRET_KEY = config('SECRET_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    JSON_SORT_KEYS = False
 
 
 class ProductionConfig(Config):
