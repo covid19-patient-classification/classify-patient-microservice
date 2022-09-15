@@ -9,9 +9,6 @@ COPY . ./
 RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 
-# Install production dependencies.
-RUN python -m pip install gunicorn
-
 # Run the web service on container startup. Here we use the gunicorn
 # webserver, with one worker process and 8 threads.
 # For environments with multiple CPU cores, increase the number of workers
