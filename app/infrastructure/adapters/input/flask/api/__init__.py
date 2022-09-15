@@ -8,7 +8,7 @@ def register_blueprints(app):
         module = import_module(
             'app.infrastructure.adapters.input.flask.api.services.{}.{}_classify_input_adapter'.format(service, service)
         )
-        app.register_blueprint(module.blueprint)
+        app.register_blueprint(module.blueprint, url_prefix='/api/v1')
 
 
 def create_app(config):
