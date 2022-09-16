@@ -2,6 +2,6 @@ from app.infrastructure.adapters.input.flask.api.services.patient import bluepri
 from flask import jsonify
 
 
-@blueprint.route('/', methods=['GET'])
+@blueprint.route('/classify', methods=['GET'])
 def classify():
     return jsonify({'status_code': 200, 'message': 'Classified'})
