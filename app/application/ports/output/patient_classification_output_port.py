@@ -2,8 +2,7 @@ from abc import ABC, abstractmethod
 
 
 # Interface
-class PatientClassifyUseCase(ABC):
-
+class PatientClassificationOutputPort(ABC):
     @abstractmethod
     def create_patient(
             self, identification, name, sato2, pao2, fio2, pf_ratio, respiratory_failure, ards, sepsis_shock,
@@ -15,3 +14,4 @@ class PatientClassifyUseCase(ABC):
             self, sato2, pao2, fio2, pf_ratio, respiratory_failure, ards, sepsis_shock,
             sore_throat, fever, cough, headache, fatigue, dyspnea, nausea, vomit, diarrhea
     ): pass
+    

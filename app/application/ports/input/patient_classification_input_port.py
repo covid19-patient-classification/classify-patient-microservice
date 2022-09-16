@@ -1,12 +1,12 @@
-from app.application.usecases.patient_classify_use_case import PatientClassifyUseCase
-from app.application.ports.output.patient_classify_output_port import PatientClassifyOutputPort
+from app.application.usecases.patient_classification_use_case import PatientClassificationUseCase
+from app.application.ports.output.patient_classification_output_port import PatientClassificationOutputPort
 
 
-# Implement PatientClassifyUseCase Interface
-class PatientClassifyInputPort(PatientClassifyUseCase):
+# Implement PatientClassificationUseCase Interface
+class PatientClassificationInputPort(PatientClassificationUseCase):
 
     def __init__(self):
-        self.patient_classify_output_port = PatientClassifyOutputPort()
+        self.patient_classify_output_port = PatientClassificationOutputPort()
 
     def create_patient(self, identification, name, sato2, pao2, fio2, pf_ratio, respiratory_failure, ards, sepsis_shock,
                        sore_throat, fever, cough, headache, fatigue, dyspnea, nausea, vomit, diarrhea,
