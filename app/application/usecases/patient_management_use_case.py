@@ -9,4 +9,4 @@ class PatientManagementUseCase(ABC):
     ): pass
 
     @abstractmethod
-    def retrieve_patient(self, identification): pass
+    def persist_patient(self, patient): pass
