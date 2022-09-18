@@ -23,7 +23,7 @@ class Patient:
         self.vomit = vomit
         self.diarrhea = diarrhea
         self.covid19_severity = None
-        self.set_registration_date = self.__set_registration_date()
+        self.registration_date = self.__set_registration_date()
 
     def __str__(self):
         return str(self.__dict__)
