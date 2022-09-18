@@ -63,7 +63,7 @@ class Patient:
 
     @staticmethod
     def __set_registration_date():
-        return datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        return datetime.today()
 
     @staticmethod
     def __boolean_to_integer(boolean_value):
