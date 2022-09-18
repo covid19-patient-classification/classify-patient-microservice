@@ -2,5 +2,4 @@ from app.application.ports.output.patient_management_output_port import PatientM
 
 
 class PatientManagementMongoAdapter(PatientManagementOutputPort):
-    def persist_patient(self, patient):
-        pass
+    def persist_patient(self, patient): pass

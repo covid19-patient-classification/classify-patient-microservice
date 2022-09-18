@@ -1,13 +1,12 @@
-from app.domain.entity.patient import Patient
 from app.infrastructure.adapters.output.random_forest.patient_classification_random_forest_adapter import PatientClassificationRandomForestAdapter
 from app.infrastructure.adapters.input.flask.api.services.patient import blueprint
-from flask import jsonify
+from app.infrastructure.adapters.input.flask.api.services.patient.mappers.patient_flask_mapper import PatientFlaskMapper
+from flask import jsonify, request
 
 
-@blueprint.route('/classify', methods=['GET'])
+@blueprint.route('/', methods=['POST'])
 def classify():
-    patient = Patient("1100000000", "CXXXXXX", 95, 90, 90, 290, True,
-                      True, True, True, True, True, True, True, True, True, True, True)
+    patient = PatientFlaskMapper().request_to_domain(request)
     covid19_severity = PatientClassificationRandomForestAdapter().classify_patient(patient)
-    patient.set_covid19_severity(covid19_severity) # Aquí se puede agregar una nueva funcionalidad en el caso de uso de management
+    patient.set_covid19_severity(covid19_severity)
     return jsonify(patient.__rules__())

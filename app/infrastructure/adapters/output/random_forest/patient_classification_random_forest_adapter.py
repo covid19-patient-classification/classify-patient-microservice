@@ -6,24 +6,20 @@ import joblib
 class PatientClassificationRandomForestAdapter(PatientClassificationOutputPort):
     def __init__(self):
         self.model_path = 'app/infrastructure/adapters/output/random_forest/resources/model.joblib'
-        self.random_forest_model = self.set_up_model(self.model_path)
+        self.random_forest_model = self.__set_up_model()
 
     def classify_patient(self, patient):
         patient_dataframe = PatientRandomForestMapper.patient_domain_to_dataframe(patient)
-        covid19_severity_prediction = self.predict(self.random_forest_model, patient_dataframe)
+        covid19_severity_prediction = self.__predict(patient_dataframe)
         return PatientRandomForestMapper.covid19_severity_prediction_to_string(covid19_severity_prediction[0])
 
-    @staticmethod
-    def set_up_model(model_path):
-        return joblib.load('{}'.format(model_path))
+    def __set_up_model(self):
+        return joblib.load('{}'.format(self.model_path))
 
-    @staticmethod
-    def predict(random_forest_model, patient_dataframe):
-        return random_forest_model.predict(patient_dataframe)
+    def __predict(self, patient_dataframe):
+        return self.random_forest_model.predict(patient_dataframe)
 
-    @staticmethod
-    def train(): pass
+    def __train(self): pass
 
-    @staticmethod
-    def save(random_forest_model, model_path):
-        joblib.dump(random_forest_model, model_path)
+    def __save(self):
+        joblib.dump(self.random_forest_model, self.model_path)
