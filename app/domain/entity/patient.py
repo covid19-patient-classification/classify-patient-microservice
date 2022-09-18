@@ -50,12 +50,14 @@ class Patient:
 
     def __rules__(self):
         return {
-            'case_severity': self.covid19_severity,
-            'sato2': self.sato2,
-            'pf_ratio': self.pf_ratio,
-            'respiratory_failure': self.respiratory_failure,
-            'ards': self.ards,
-            'sepsis_shock': self.sepsis_shock
+            'covid19_severity_prediction': self.covid19_severity,
+            "decision_rules": {
+                'sato2': self.sato2,
+                'pf_ratio': self.pf_ratio,
+                'respiratory_failure': self.respiratory_failure,
+                'ards': self.ards,
+                'sepsis_shock': self.sepsis_shock
+            }
         }
 
     def set_covid19_severity(self, covid19_severity):

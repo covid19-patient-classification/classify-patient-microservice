@@ -11,7 +11,10 @@ class PatientClassificationRandomForestAdapter(PatientClassificationOutputPort):
     def classify_patient(self, patient):
         patient_dataframe = PatientRandomForestMapper.patient_domain_to_dataframe(patient)
         covid19_severity_prediction = self.__predict(patient_dataframe)
-        return PatientRandomForestMapper.covid19_severity_prediction_to_string(covid19_severity_prediction[0])
+        patient.set_covid19_severity(
+            PatientRandomForestMapper.covid19_severity_prediction_to_string(covid19_severity_prediction[0])
+        )
+        return patient.__rules__(), patient_dataframe, covid19_severity_prediction
 
     def __set_up_model(self):
         return joblib.load('{}'.format(self.model_path))
@@ -19,7 +22,10 @@ class PatientClassificationRandomForestAdapter(PatientClassificationOutputPort):
     def __predict(self, patient_dataframe):
         return self.random_forest_model.predict(patient_dataframe)
 
-    def __train(self): pass
+    def train(self, patient_dataframe, covid19_severity_prediction):
+        self.random_forest_model.n_estimators += 1
+        self.random_forest_model.fit(patient_dataframe, covid19_severity_prediction)
+        self.__save()
 
     def __save(self):
         joblib.dump(self.random_forest_model, self.model_path)

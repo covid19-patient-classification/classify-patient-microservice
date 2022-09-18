@@ -1,6 +1,6 @@
+from celery import Celery
 from flask import Flask
 from importlib import import_module
-
 
 def register_blueprints(app):
     modules = ['patient']
@@ -16,3 +16,5 @@ def create_app(config):
     app.config.from_object(config)
     register_blueprints(app)
     return app
+
+celery = Celery(__name__)
