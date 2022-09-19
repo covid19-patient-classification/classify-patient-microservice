@@ -2,10 +2,8 @@ import os
 
 
 class Config(object):
-    base_direction = os.path.abspath(os.path.dirname(__file__))
-
-    # Set up a secret key to environment variable
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    BASE_DIRECTION = os.path.abspath(os.path.dirname(__file__))
+    SECRET_KEY = os.environ.get('SECRET_KEY')  # Set up a secret key to environment variable
     JSON_SORT_KEYS = False
 
 
