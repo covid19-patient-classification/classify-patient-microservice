@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from importlib import import_module
 
 
@@ -9,6 +10,10 @@ def register_blueprints(app):
             'app.infrastructure.adapters.input.flask.api.services.{}.{}_input_adapter'.format(service, service)
         )
         app.register_blueprint(module.blueprint, url_prefix='/api/v1/{}'.format(service))
+
+
+def set_up_cors(app):
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 def create_app(config):
