@@ -10,9 +10,7 @@ def classify():
     try:
         patient = PatientFlaskMapper().request_to_domain(request)
         decision_rules = PatientClassificationRandomForestAdapter().classify_patient(patient)
-
         patient_input_job.persist_async_patient(patient)  # Background task
-
         return jsonify(decision_rules)
     except Exception as e:
         abort(500, e)
