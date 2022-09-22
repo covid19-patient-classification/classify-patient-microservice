@@ -9,5 +9,6 @@ class PatientRandomForestMapper:
 
     @staticmethod
     def covid19_severity_prediction_to_string(covid19_severity_prediction):
-        type_of_patients = json.load(open('app/infrastructure/adapters/output/random_forest/resources/classes.json'))
-        return type_of_patients[str(covid19_severity_prediction)]
+        with open('app/infrastructure/adapters/output/random_forest/resources/classes.json') as classes_file:
+            type_of_patients = json.load(classes_file)
+            return type_of_patients[str(covid19_severity_prediction)]
