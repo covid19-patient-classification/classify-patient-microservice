@@ -21,7 +21,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install Flask, Flask-Testing
+        python -m pip install Flask
+        python -m pip install Flask-Testing
 
     - name: Run tests
       run: |
