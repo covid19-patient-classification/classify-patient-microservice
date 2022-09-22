@@ -18,12 +18,13 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
+    - name: Install Testing dependencies
       run: |
         python -m pip install --upgrade pip
         python -m pip install Flask
         python -m pip install Flask-Testing
         python -m pip install Flask-Cors
+        python -m pip install pymongo[srv]
 
     - name: Run tests
       run: |
