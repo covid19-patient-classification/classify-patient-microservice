@@ -1,4 +1,4 @@
-from app.runner.resources.config import config_dict
+from app.infrastructure.adapters.input.flask.resources.config import config_dict
 from app.infrastructure.adapters.input.flask.api import create_app
 from flask_migrate import Migrate
 import os

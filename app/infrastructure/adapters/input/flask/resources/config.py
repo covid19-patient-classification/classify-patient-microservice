@@ -5,7 +5,6 @@ class Config(object):
     BASE_DIRECTION = os.path.abspath(os.path.dirname(__file__))
     SECRET_KEY = os.environ.get('SECRET_KEY')  # Set up a secret key to environment variable
     SORT_KEYS = False
-    TESTING=True
 
 
 class ProductionConfig(Config):
