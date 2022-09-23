@@ -5,13 +5,10 @@ import os
 
 
 DEBUG = os.environ.get('FLASK_DEBUG', default=False)
-
-# Set configuration values
-config_mode = 'Debug' if DEBUG else 'Production'
+config_mode = 'Debug' if DEBUG else 'Production'  # Set configuration values
 
 try:
-    # Load the configuration using the default values
-    app_config = config_dict[config_mode.capitalize()]
+    app_config = config_dict[config_mode.capitalize()]  # Load the configuration using the default values
 except KeyError:
     exit('Error: Invalid <config mode>. Expected values -> [Debug, Production]')
 
