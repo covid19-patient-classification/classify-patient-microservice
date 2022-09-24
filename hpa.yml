@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: classify-patient-microservice-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: classify-patient-microservice
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 85

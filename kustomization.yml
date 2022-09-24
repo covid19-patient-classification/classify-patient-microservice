@@ -1,0 +1,8 @@
+commonLabels:
+  app: classify-patient-microservice
+resources:
+  - deployment.yml
+  - service.yml
+  - hpa.yml
+configMapGenerator:
+  - name: classify-patient-microservice-map
