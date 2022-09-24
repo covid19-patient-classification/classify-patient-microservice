@@ -1,13 +1,12 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
-environment: production
 metadata:
-  name: ${{secrets.GKE_DEPLOYMENT_NAME}}-hpa
+  name: classify-patient-microservice-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: ${{secrets.GKE_DEPLOYMENT_NAME}}
+    name: classify-patient-microservice
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 85

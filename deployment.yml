@@ -1,13 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
-environment: production
 metadata:
-  name: ${{secrets.GKE_DEPLOYMENT_NAME}}
+  name: classify-patient-microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${{secrets.GKE_DEPLOYMENT_NAME}}
+      app: classify-patient-microservice
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -16,11 +15,11 @@ spec:
   template:
     metadata:
       labels:
-        app: ${{secrets.GKE_DEPLOYMENT_NAME}}
+        app: classify-patient-microservice
     spec:
       containers:
-        - name: ${{secrets.DOCKER_IMAGE}}
-          image: ${{secrets.GAR_REPOSITORY_REGION}}-docker.pkg.dev/${{secrets.GCP_PROJECT_ID}}/${{secrets.GAR_REPOSITORY_NAME}}/${{secrets.DOCKER_IMAGE}}:latest
+        - name: classify-patient-microservice-image-v1.0.0
+          image: us-central1-docker.pkg.dev/tt-covid19-patients/classify-patient-microservice-repository/classify-patient-microservice-image-v1.0.0:latest
           imagePullPolicy: Always
       dnsPolicy: ClusterFirst
       restartPolicy: Always

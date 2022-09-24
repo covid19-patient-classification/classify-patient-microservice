@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: Service
-environment: production
 metadata:
-  name: ${{secrets.GKE_DEPLOYMENT_NAME}}-service
+  name: classify-patient-microservice-service
   labels:
-    app: ${{secrets.GKE_DEPLOYMENT_NAME}}-service
+    app: classify-patient-microservice-service
 spec:
   type: LoadBalancer
   selector:
-    app: micro-booking
+    app: classify-patient-microservice
   ports:
     - protocol: TCP
       port: 8080
