@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+environment: production
+metadata:
+  name: ${{secrets.GKE_DEPLOYMENT_NAME}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${{secrets.GKE_DEPLOYMENT_NAME}}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: ${{secrets.GKE_DEPLOYMENT_NAME}}
+    spec:
+      containers:
+        - name: ${{secrets.DOCKER_IMAGE}}
+          image: ${{secrets.GAR_REPOSITORY_REGION}}-docker.pkg.dev/${{secrets.GCP_PROJECT_ID}}/${{secrets.GAR_REPOSITORY_NAME}}/${{secrets.DOCKER_IMAGE}}:latest
+          imagePullPolicy: Always
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

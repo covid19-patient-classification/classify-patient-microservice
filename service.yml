@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+environment: production
+metadata:
+  name: ${{secrets.GKE_DEPLOYMENT_NAME}}-service
+  labels:
+    app: ${{secrets.GKE_DEPLOYMENT_NAME}}-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: micro-booking
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
