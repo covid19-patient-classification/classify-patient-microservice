@@ -18,8 +18,8 @@ spec:
         app: classify-patient-microservice
     spec:
       containers:
-        - name: classify-patient-microservice-image-v1.0.0
-          image: us-central1-docker.pkg.dev/tt-covid19-patients/classify-patient-microservice-repository/classify-patient-microservice-image-v1.0.0:latest
+        - name: classify-patient-microservice-image
+          image: us-central1-docker.pkg.dev/tt-covid19-patients/classify-patient-microservice-repository/classify-patient-microservice-image:latest
           imagePullPolicy: Always
       dnsPolicy: ClusterFirst
       restartPolicy: Always
