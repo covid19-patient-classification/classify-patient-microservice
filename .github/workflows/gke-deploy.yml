@@ -5,7 +5,6 @@ on:
     types: [closed]
     branches:
       - "main"
-
 jobs:
   setup-build-build-deploy:
     name: Setup, Build, Publish and Deploy
