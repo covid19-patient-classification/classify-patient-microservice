@@ -1,5 +1,5 @@
 
-name: Deploy to GKE
+name: Deploy to Google Kubernetes Engine
 on:
   pull_request:
     types: [closed]
@@ -7,7 +7,7 @@ on:
       - "main"
 jobs:
   setup-build-build-deploy:
-    name: Setup, Build, Publish and Deploy
+    name: Deploy to Google Kubernetes Engine
     runs-on: ubuntu-latest
     environment: production
     env:
