@@ -16,4 +16,4 @@ app = create_app(app_config)
 Migrate(app)
 
 if __name__ == '__main__':
-    app.run(port=os.environ.get('FLASK_RUN_PORT'))
+    app.run()

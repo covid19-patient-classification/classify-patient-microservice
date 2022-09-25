@@ -18,8 +18,29 @@ spec:
         app: classify-patient-microservice
     spec:
       containers:
-        - name: classify-patient-microservice-image
+        - name: classify-patient-microservice-container
           image: us-central1-docker.pkg.dev/tt-covid19-patients/classify-patient-microservice-repository/classify-patient-microservice-image:latest
           imagePullPolicy: Always
+          env:
+            - name: DATABASE_DEPLOYMENT_URL
+              valueFrom:
+                secretKeyRef:
+                  name: classify-patient-microservice-secrets
+                  key: DATABASE_DEPLOYMENT_URL
+                  optional: false
+
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: classify-patient-microservice-secrets
+                  key: DATABASE_NAME
+                  optional: false
+
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: classify-patient-microservice-secrets
+                  key: SECRET_KEY
+                  optional: false
       dnsPolicy: ClusterFirst
       restartPolicy: Always
