@@ -16,4 +16,4 @@ RUN python -m pip install -r requirements.txt
 # Timeout is set to 0 to disable the timeouts of the workers to allow Cloud Run to handle instance scaling.
 EXPOSE 8080
 ENV PORT 8080
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.runner.run:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.run:app
