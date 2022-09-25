@@ -13,5 +13,5 @@ class PatientInputAdapterTest(BaseTestClass):
             'accept': 'application/json',
             'content-type': 'application/json'
         }
-        response = self.client.post('api/v1/patient/', json=patient_data, headers=headers_payload)
+        response = self.client.post('api/v1/patients/', json=patient_data, headers=headers_payload)
         self.assertEqual(500, response.status_code)
