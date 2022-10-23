@@ -1,5 +1,5 @@
 from app.infrastructure.adapters.input.flask.api import create_app
-from app.infrastructure.adapters.input.flask.resources.config import config_dict
+from app.infrastructure.adapters.input.flask.api.resources.config import config_dict
 from flask_testing import TestCase
 import os
 
