@@ -51,4 +51,4 @@ spec:
                   optional: false
 
       dnsPolicy: ClusterFirst
-      restartPolicy: Always
+      restartPolicy: Never
