@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: classify-patient-microservice-container
-          image: us-central1-docker.pkg.dev/tt-covid19-patients/classify-patient-microservice-repository/classify-patient-microservice-image:latest
+          image: us-central1-docker.pkg.dev/covid19-patients-tt/classify-patient-microservice-repository/classify-patient-microservice-image:latest
           imagePullPolicy: Always
           env:
             - name: DATABASE_DEPLOYMENT_URL
