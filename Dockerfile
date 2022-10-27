@@ -6,6 +6,8 @@ ENV PIP_ROOT_USER_ACTION ignore
 COPY . ./
 
 RUN python -m pip install --upgrade pip
+RUN python -m pip uninstall pymongo
+RUN python -m pip install pymongo[srv]
 RUN python -m pip install -r requirements.txt
 
 EXPOSE 8080
