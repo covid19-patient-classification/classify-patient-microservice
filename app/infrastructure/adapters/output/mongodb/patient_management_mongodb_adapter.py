@@ -14,5 +14,7 @@ class PatientManagementMongoDBAdapter(PatientManagementOutputPort):
 
     @staticmethod
     def __setup_mongo_database():
+        print(os.environ.get('DATABASE_DEPLOYMENT_URL'))
+        print(os.environ.get('DATABASE_NAME'))
         client = MongoClient(os.environ.get('DATABASE_DEPLOYMENT_URL'), connect=False)
         return client.get_database(os.environ.get('DATABASE_NAME'))
