@@ -42,5 +42,13 @@ spec:
                   name: classify-patient-microservice-secrets
                   key: SECRET_KEY
                   optional: false
+            
+            - name: TZ
+              valueFrom:
+                secretKeyRef:
+                  name: classify-patient-microservice-secrets
+                  key: TZ
+                  optional: false
+
       dnsPolicy: ClusterFirst
       restartPolicy: Always
